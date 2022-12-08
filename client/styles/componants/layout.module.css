@@ -1,0 +1,301 @@
+/* service layoutes */
+/* main wrapper */
+.layoutWrapper {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+/* layout content */
+.layoutWrapper .content {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 10px;
+  border-left: 1px solid var(--four);
+}
+
+.content .layoutHeader {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.content .layoutHeader .sidebarMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.content .layoutContent {
+  width: 100%;
+}
+
+/* data list layout */
+.layoutDataList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.layoutForCenter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+/* single tool layout */
+.layoutTool {
+  width: 100%;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: 1fr;
+}
+
+.layoutTool .tool {
+  width: 100%;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.layoutTool .left,
+.layoutTool .right {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* feedback css */
+.feedback {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--four);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.feedback .react {
+  display: flex;
+  width: 100%;
+}
+
+.feedback .react .likeAndSave {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.feedback .react .rating {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+}
+
+.feedback .react button {
+  padding: 10px;
+}
+
+.feedback .react button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.feedback .shareWrapper {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback .shareWrapper p {
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--two);
+}
+
+.feedback .shareWrapper .icons {
+  display: flex;
+  gap: 5px;
+}
+
+.feedback .shareWrapper .icons button {
+  padding: 5px;
+}
+
+.feedback .shareWrapper .link {
+  background-color: var(--two);
+  width: max-content;
+  letter-spacing: 1.5px;
+  padding: 5px;
+  display: flex;
+  font-size: 16px;
+  border-radius: 100px;
+  padding-right: 50px;
+  align-items: center;
+  color: var(--four);
+  gap: 10px;
+}
+
+.feedback .shareWrapper .link button {
+  background-color: var(--four);
+  padding: 5px 10px;
+  font-size: 15px;
+  color: var(--two);
+  font-weight: bold;
+}
+
+/* sidebar css */
+.layoutWrapper .sidebar {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 10px;
+  height: 100%;
+}
+
+.sidebar .list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .list .top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar .list .top .left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 16px;
+  color: var(--one);
+  font-weight: bold;
+}
+
+.sidebar .list .top .right svg {
+  cursor: pointer;
+}
+
+.sidebar .list .top svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--two);
+}
+
+.sidebar .list .bottom {
+  margin-left: 20px;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--three);
+  transform: scaleY(0);
+  transform-origin: top;
+  height: 0px;
+}
+
+.sidebar .list .bottom.active {
+  transform: scaleY(1);
+  height: max-content;
+  display: flex;
+  padding: 10px 0px;
+}
+
+.sidebar .list .bottom > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--three);
+  cursor: pointer;
+}
+
+.sidebar .list .bottom svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--three);
+}
+
+@media only screen and (max-width: 1000px) {
+  .layoutWrapper.active {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .layoutWrapper .content {
+    width: 100%;
+    border: none;
+    padding: 0;
+  }
+
+  .content .layoutHeader {
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  .layoutWrapper .sidebar {
+    display: none;
+  }
+
+  .sidebar .list .top .left {
+    color: var(--light);
+  }
+
+  .layoutWrapper .sidebar.active {
+    width: 100%;
+    display: flex;
+    background-color: var(--two);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .layoutWrapper .content .layoutContent {
+    display: none;
+  }
+
+  .layoutWrapper .content.active .layoutContent {
+    display: flex;
+  }
+
+  .content .layoutHeader .sidebarMenu {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .layoutWrapper .content .layoutDataList {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .layoutTool {
+    gap: 10px;
+  }
+
+  .layoutTool .tool {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .layoutWrapper .content .layoutDataList {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback .react {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

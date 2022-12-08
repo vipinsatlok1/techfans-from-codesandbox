@@ -1,0 +1,87 @@
+.about {
+  width: 100%;
+  max-width: 400px;
+  /* background-color: var(--four); */
+  /* padding: 10px; */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--one);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.about .about-card-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--one);
+}
+
+.about .about-card-wrapper:nth-child(1) {
+  margin-top: 10px;
+}
+
+.about .about-card-wrapper:nth-child(2) {
+  background-color: var(--one);
+}
+.about .about-card-wrapper h2 {
+  font-size: 20px;
+  color: white;
+}
+
+.about .about-card-wrapper:nth-child(1) h2 {
+  color: var(--one);
+}
+.about .about-card-wrapper .about-card {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.about .about-card-wrapper .about-card p {
+  display: flex;
+  justify-content: flex-start;
+  color: white;
+  font-size: 18px;
+}
+.about .about-card-wrapper:nth-child(1) .about-card p {
+  color: var(--one);
+}
+
+.about .about-card-wrapper .about-card img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.about .about-card-wrapper .about-card .about-social {
+  display: flex;
+  justify-content: flex-start;
+  color: var(--four);
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 5px;
+  font-size: 14px;
+}
+.about .about-card-wrapper:nth-child(1) .about-card .about-social {
+  color: var(--one);
+  opacity: 0.7;
+}
+.about .about-card-wrapper .about-card .about-social svg {
+  fill: var(--four);
+}
+
+.about .about-card-wrapper:nth-child(1) .about-card .about-social svg {
+  fill: var(--one);
+  opacity: 0.7;
+}
+.about .about-card-wrapper .about-card .about-social .about-social-icons {
+  display: flex;
+  gap: 5px;
+}

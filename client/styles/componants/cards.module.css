@@ -1,0 +1,40 @@
+/* service card */
+.card {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--five);
+  border-radius: 10px;
+}
+
+.card > svg {
+  font-size: 30px;
+}
+
+.card .content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.card .content p {
+  justify-content: flex-start;
+  color: var(--one);
+}
+
+.card .content img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .buttons > div {
+  display: flex;
+  gap: 5px;
+}

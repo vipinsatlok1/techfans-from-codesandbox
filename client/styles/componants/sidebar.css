@@ -1,0 +1,48 @@
+/* sidebar */
+.sidebar {
+
+}
+
+
+
+
+
+/* media */
+@media only screen and (max-width: 1000px) {
+  .layout .sidebar {
+    display: none;
+  }
+
+  .layout .sidebar.active {
+    display: flex;
+    position: relative;
+    width: 100%;
+    right: 0px;
+    left: 0px;
+    background-color: var(--one);
+    padding: 20px;
+    top: 30px;
+    z-index: 2000;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+  }
+
+  .sidebar .list .top .left {
+    color: white;
+  }
+  .sidebar .list .top svg {
+    fill: white;
+  }
+
+  .sidebar .list .bottom {
+    color: var(--four);
+  }
+
+  .sidebar .list .bottom > div {
+    color: var(--four);
+  }
+  .sidebar .list .bottom svg {
+    fill: var(--four);
+  }
+}

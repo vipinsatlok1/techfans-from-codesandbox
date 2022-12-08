@@ -1,0 +1,88 @@
+.layout {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.layout .sidebar {
+  width: 20%;
+}
+
+.layout .layoutMain {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.layout .layoutMain .layoutHeader {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 2fr 1fr;
+}
+
+.layout .layoutMain .layoutContent .card-content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.layout .sidebarMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  fill: var(--one);
+  display: none;
+}
+
+.layout .layoutMain .layoutContent {
+  display: flex;
+}
+
+/* media */
+@media only screen and (max-width: 1000px) {
+  .layout .sidebarMenu {
+    display: block;
+  }
+  .layout .layoutMain .layoutHeader {
+    display: none;
+  }
+  .layout .layoutMain .layoutHeader.active {
+    display: grid;
+  }
+  .layout .layoutMain {
+    width: 100%;
+  }
+
+  .layout .layoutMain .layoutContent {
+    display: none;
+  }
+
+  .layout .layoutMain .layoutContent.active {
+    display: flex;
+  }
+
+  .layout .layoutMain .layoutHeader {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .layout .layoutMain .layoutContent .card-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .layout .layoutMain .layoutContent .card-content {
+    grid-template-columns: 1fr;
+  }
+}

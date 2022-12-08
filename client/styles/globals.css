@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "helvetica";
+  src: url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf")
+      format("woff"),
+    url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf")
+      format("opentype"),
+    url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf")
+      format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "helvetica";
+  text-decoration: none;
+  font-size: 16px;
+}
+
+:root {
+  --one: #05386b;
+  --two: #379683;
+  --three: #56db55;
+  --four: #8eefaf;
+  --five: #edf5e1;
+  --dard: #000000;
+  --light: #ffffff;
+
+  /* font */
+  --fontSize1: 14px;
+  --fontSize2: 16px;
+
+  /* header */
+  --headerHeight: 60px;
+
+  /* layout */
+  --paddingMain: 10px 100px;
+  --paddingTop: 10px;
+  --paddingLeft: 100px;
+
+  /* home cards */
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: white;
+}
+
+#__next {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+main {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  /* min-height: calc(100vh - 200px); */
+  padding: 0px 100px;
+}
+
+.page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+@media only screen and (max-width: 1200px) {
+  :root {
+    --paddingMain: 10px 20px;
+    --paddingLeft: 20px;
+  }
+
+  main {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  main {
+    padding: 0px 20px;
+  }
+}
