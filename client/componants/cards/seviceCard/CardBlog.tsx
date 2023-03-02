@@ -28,7 +28,7 @@ export const CardBlog = ({ data }: { data: ICardBlog }) => {
           />
           <Button varient="card" onClick={saveHandler} Icon={FiHeart} />
         </div>
-        <Button varient="card" Icon={AiFillEye} path={slug} />
+        <Button varient="card" Icon={AiFillEye} path={"/blogs/" + slug} />
       </div>
     </div>
   );

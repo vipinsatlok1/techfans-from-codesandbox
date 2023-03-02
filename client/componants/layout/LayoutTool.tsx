@@ -14,48 +14,14 @@ import { FaPinterestP } from "react-icons/fa";
 import { Button, Heading1, Heading2, Paragraph1, Paragraph2 } from "..";
 import { BiLike } from "react-icons/bi";
 import { FiHeart } from "react-icons/fi";
-import paragraph1 from "../forms/paragraph1";
+import { LayoutFeedback } from "./LayoutFeedback";
 
 // BsEmojiAngry
 export const LayoutTool = ({ children }: { children: any }) => {
   return (
     <div className={styles.layoutTool}>
       {children}
-      <div className={styles.feedback}>
-        <div className={styles.react}>
-          <div className={styles.likeAndSave}>
-            <Button text={43} varient="card" Icon={BiLike} />
-            <Button varient="card" Icon={FiHeart} />
-          </div>
-          <div className={styles.rating}>
-            <Button varient="card" Icon={BsEmojiAngry} />
-            <Button varient="card" Icon={BsEmojiFrown} />
-            <Button varient="card" Icon={BsEmojiNeutral} />
-            <Button varient="card" Icon={BsEmojiSmile} />
-            <Button varient="card" Icon={BsEmojiLaughing} />
-          </div>
-        </div>
-        <div className={styles.shareWrapper}>
-          <Paragraph2>
-            Share on
-            <div className={styles.icons}>
-              <Button varient="card" Icon={FaFacebookF} />
-              <Button varient="card" Icon={FaInstagram} />
-              <Button varient="card" Icon={FaLinkedinIn} />
-              <Button varient="card" Icon={FaTwitter} />
-              <Button varient="card" Icon={FaTelegramPlane} />
-              <Button varient="card" Icon={FaWhatsapp} />
-              <Button varient="card" Icon={FaPinterestP} />
-            </div>
-          </Paragraph2>
-          <div className={styles.link}>
-            <Button text={"Copy link"} /> https:twitter.
-          </div>
-        </div>
-        <div className={styles.thanks}>
-          <Heading2 text={"Thanks for Visit this page and Use this Tool."} />
-        </div>
-      </div>
+      <LayoutFeedback like={4343} link="httpsLtwitter" />
     </div>
   );
 };
