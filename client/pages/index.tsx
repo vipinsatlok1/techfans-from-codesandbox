@@ -1,13 +1,9 @@
 import { BlogsSection, Hero, ProjectSection, ToolSection } from "@/componants";
+import LayoutHome from "@/componants/layout/LayoutHome";
 
 const Home = () => {
   return (
-    <>
-      <Hero />
-      <ToolSection />
-      <Hero />
-      <ToolSection />
-    </>
+    <LayoutHome />
   );
 };
 

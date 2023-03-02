@@ -1,11 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 @font-face {
   font-family: "helvetica";
-  src: url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf")
-      format("woff"),
-    url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf")
-      format("opentype"),
-    url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf")
-      format("truetype");
+  src: url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf") format("woff"),
+    url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf") format("opentype"),
+    url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf") format("truetype");
 }
 
 * {
@@ -15,6 +15,7 @@
   font-family: "helvetica";
   text-decoration: none;
   font-size: 16px;
+  list-style: none;
 }
 
 :root {
@@ -23,7 +24,7 @@
   --three: #56db55;
   --four: #8eefaf;
   --five: #edf5e1;
-  --dard: #000000;
+  --dark: #000000;
   --light: #ffffff;
 
   /* font */

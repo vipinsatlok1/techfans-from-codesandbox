@@ -73,6 +73,96 @@
   flex-direction: column;
 }
 
+/* single blog layout */
+.blogLayoutWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.blogLayoutWrapper .blogLayout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blogLayout h1 {
+  font-size: 22px;
+  color: var(--one);
+}
+
+.blogLayout h2 {
+  font-size: 18px;
+  color: var(--one);
+}
+
+.blogLayout h3 {
+  font-size: 16px;
+  color: var(--one);
+}
+
+.blogLayout p {
+  font-size: 16px;
+  color: var(--two);
+}
+
+.blogLayout p strong {
+  color: var(--one);
+  font-weight: bold;
+  width: 100%;
+}
+
+.blogLayout p a {
+  color: var(--one);
+  text-decoration: underline;
+}
+
+.blogLayout ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.blogLayout ul li {
+  color: var(--two);
+  font-weight: bold;
+}
+
+.blogLayout ul li input {
+  display: none;
+}
+
+.blogLayout blockquote {
+  display: flex;
+  background-color: var(--five);
+  padding: 10px;
+  border-left: 4px solid var(--two);
+}
+
+.blogLayout pre {
+  display: flex;
+  background-color: var(--dark);
+  border-left: 4px solid var(--two);
+  color: var(--four);
+  justify-content: flex-start;
+}
+
+.blogLayout pre code {
+  display: flex;
+  padding: 0;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.blogLayout img {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* feedback css */
 .feedback {
   width: 100%;
@@ -214,7 +304,7 @@
   padding: 10px 0px;
 }
 
-.sidebar .list .bottom > div {
+.sidebar .list .bottom>div {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -273,6 +363,93 @@
   .content .layoutHeader .sidebarMenu {
     display: flex;
   }
+}
+
+
+/* layout home csss */
+.layoutHomeWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.layoutHomeWrapper .layoutHome {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layoutHomeWrapper .layoutHome h1 {
+  height: auto;
+  margin: 0;
+}
+
+
+.layoutHomeWrapper .layoutHome .left {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layoutHomeWrapper .layoutHome .left .wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.layoutHomeWrapper .layoutHome .right {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layoutHomeWrapper .layoutHome .right .wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0px;
+  align-items: center;
+  gap: 10px;
+}
+
+.layoutHomeWrapper .layoutHome .right .wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0px;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.layoutHomeWrapper .layoutHome .right .cardWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+
+
+.layoutHomeWrapper .layoutHome .right .cardWrapper .icons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.layoutHomeWrapper .layoutHome .right .cardWrapper .card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 300px;
 }
 
 @media only screen and (max-width: 800px) {
