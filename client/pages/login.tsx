@@ -4,8 +4,8 @@ import {
   Form,
   Heading1,
   Input,
-  LayoutForCenter,
   Paragraph2,
+  Layout,
 } from "@/componants";
 
 import Link from "next/link";
@@ -30,7 +30,7 @@ const Login = () => {
   };
 
   return (
-    <LayoutForCenter>
+    <Layout>
       <Form>
         <Heading1 text={"Login now"} />
         {errMsg && <Error text={errMsg} />}
@@ -51,7 +51,7 @@ const Login = () => {
           Don't have an account <Link href={"/signup"}>Create Account</Link>
         </Paragraph2>
       </Form>
-    </LayoutForCenter>
+    </Layout>
   );
 };
 

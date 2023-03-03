@@ -11,9 +11,15 @@ class ErrorHandler extends Error {
     return this;
   }
 
-  static notAccep(message = "unauthrized") {
+  static notAccept(message = "unauthrized") {
     this.message = message;
     this.status = 403;
+    return this;
+  }
+
+  static badRequest(message = "bad request") {
+    this.message = message;
+    this.status = 404;
     return this;
   }
 }
