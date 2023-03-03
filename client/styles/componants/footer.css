@@ -83,7 +83,7 @@
 .footer .bottom .copyright {
   width: 100%;
   gap: 5px;
-  color: var(--three);
+  color: var(--two);
   display: flex;
 }
 

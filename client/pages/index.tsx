@@ -1,9 +1,33 @@
-import { BlogsSection, Hero, ProjectSection, ToolSection } from "@/componants";
+import { CardHomeAd } from "@/componants";
 import LayoutHome from "@/componants/layout/LayoutHome";
+import { DataLeftHome, DataRightHome } from "@/data/homeData";
 
 const Home = () => {
   return (
-    <LayoutHome />
+    <>
+      <LayoutHome
+        Card={CardHomeAd}
+        cardData={DataRightHome}
+        left={DataLeftHome.one}
+      />
+      <LayoutHome
+        side="left"
+        Card={CardHomeAd}
+        cardData={DataRightHome}
+        left={DataLeftHome.two}
+      />
+      <LayoutHome
+        Card={CardHomeAd}
+        cardData={DataRightHome}
+        left={DataLeftHome.three}
+      />
+      <LayoutHome
+        side="left"
+        Card={CardHomeAd}
+        cardData={DataRightHome}
+        left={DataLeftHome.four}
+      />
+    </>
   );
 };
 
