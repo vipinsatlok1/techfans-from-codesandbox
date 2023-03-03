@@ -7,7 +7,6 @@ import paragraph2 from "./forms/paragraph2";
 import header from "./header";
 import hero from "./hero";
 import input from "./inputBox";
-import layout from "./layout";
 import projectSection from "./projectSection";
 import sidebar from "./sidebar";
 import socialMedia from "./socialMedia";
@@ -22,6 +21,7 @@ import layoutForCenter from "./layout/layoutForCenter";
 export { LayoutService } from "./layout/LayoutService";
 export { LayoutDataList } from "./layout/LayoutDataList";
 export { LayoutTool } from "./layout/LayoutTool";
+export { Layout } from "./layout/Layout";
 
 // cards
 export { CardBlog } from "./cards/seviceCard/CardBlog";
@@ -30,6 +30,10 @@ export { CardTool } from "./cards/seviceCard/CardTool";
 
 // home Card
 export { CardHomeAd } from "./cards/homeCards/CardHomeAd";
+
+
+// social SocialMedia
+export { SocialMediaIcons } from "./SocialMediaIcons";
 
 export const Header = header;
 export const Footer = footer;
@@ -40,7 +44,6 @@ export const ProjectSection = projectSection;
 export const BlogsSection = blogSection;
 export const Sidebar = sidebar;
 export const Input = input;
-export const Layout = layout;
 export const Title1 = title1;
 export const SocialMedia = socialMedia;
 export const Paragraph1 = paragraph1;

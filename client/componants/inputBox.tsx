@@ -26,14 +26,16 @@ const input = ({
   };
 
   return (
-    <input
-      className={styles.input + " " + styles[varient as string]}
-      type={type || "text"}
-      placeholder={placeholder || "Search here..."}
-      name={name}
-      value={input}
-      onChange={handler}
-    />
+    <>
+      <input
+        className={styles.input + " " + styles[varient as string]}
+        type={type || "text"}
+        placeholder={placeholder || "Search here..."}
+        name={name}
+        value={input}
+        onChange={handler}
+      />
+    </>
   );
 };
 export default input;

@@ -1,9 +1,9 @@
-import { SocialMedia } from "@/componants";
+import { SocialMedia, Layout } from "@/componants";
 import { useSocialMedia } from "@/hooks/useSocialMedia";
 
 const about = () => {
   return (
-    <section className="page">
+    <Layout>
       <div className="about">
         About us Page
         <AboutCard
@@ -21,7 +21,7 @@ const about = () => {
           src="https://plus.unsplash.com/premium_photo-1663054704511-fb13cdd7cd3f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
         />
       </div>
-    </section>
+    </Layout>
   );
 };
 
