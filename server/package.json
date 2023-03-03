@@ -1,13 +1,14 @@
 {
-  "name": "server",
+  "name": "techfans-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "This is a techfans site server",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vipin Kumar",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
