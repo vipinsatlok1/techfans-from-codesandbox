@@ -1,5 +1,5 @@
 const modelClass = require("../utils/models");
-const model = require("../models/projects");
+const model = require("../models/toolsCategory");
 
 class Controller {
   async add(req, res, next) {
@@ -25,16 +25,6 @@ class Controller {
   async getMany(req, res, next) {
     const ModelClass = new modelClass(model, req, res, next);
     await ModelClass.getMany();
-  }
-
-  async like(req, res, next) {
-    const ModelClass = new modelClass(model, req, res, next);
-    await ModelClass.like();
-  }
-
-  async rating(req, res, next) {
-    const ModelClass = new modelClass(model, req, res, next);
-    await ModelClass.rating();
   }
 }
 

@@ -75,15 +75,7 @@ class Auth {
 
   async getuser(req, res, next) {
     try {
-      const id = req.cookies.auth;
-      if (!id) return next(ErrorHandler.notAccep("not login"));
-
-      const { _id } = jwt.verify(id, process.env.JWT_SECRET);
-      if (!_id) return next(ErrorHandler.notAccep("token expired"));
-
-      const user = model.findById(_id);
-      if (!user) return next(ErrorHandler.notAccep());
-      res.status(200).send(user);
+      res.status(200).send(req.user);
     } catch (err) {
       next(err);
     }
