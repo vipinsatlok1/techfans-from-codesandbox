@@ -2,6 +2,7 @@ const model = require("../models/auth");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const ErrorHandler = require("../utils/errorHandler");
+const ModelClass = require("../utils/models")
 
 class Auth {
   async register(req, res, next) {
@@ -36,11 +37,11 @@ class Auth {
       const user = await model
         .findOne({ email: req.body.email })
         .select("+password");
-      if (!user) return next(ErrorHandler.notFound());
+      if (!user) return next(ErrorHandler.notFound("email or password wrong"));
 
       // match password
       const isMatch = await bcrypt.compare(req.body.password, user.password);
-      if (!isMatch) return next(ErrorHandler.notFound());
+      if (!isMatch) return next(ErrorHandler.notFound("email or password wrong"));
 
       // genrate token
       const token = await jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
@@ -78,6 +79,23 @@ class Auth {
       res.status(200).send(req.user);
     } catch (err) {
       next(err);
+    }
+  }
+
+  async updateUser(req, res, next) {
+    new ModelClass(model, req, res, next).update()
+  }
+
+  async deleteUser(req, res, next) {
+    new ModelClass(model, req, res, next).delete()
+  }
+
+  async getMany(req, res, next) {
+    try {
+      const data = await model.find()
+      res.status(200).send(data)
+    } catch (err) {
+      next(err)
     }
   }
 }

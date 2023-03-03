@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const controller = require("../controllers/toolsCategory");
+const { authRole, authUser } = require("../middlewares/auth");
 
-router.post("/", controller.add);
-router.put("/:id", controller.update);
-router.delete("/:id", controller.delete);
+router.post("/", authUser, authRole, controller.add);
+router.put("/:id", authUser, authRole, controller.update);
+router.delete("/:id", authUser, authRole, controller.delete);
 router.get("/:id", controller.getSingle);
 router.get("/", controller.getMany);
 

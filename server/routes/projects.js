@@ -1,12 +1,14 @@
 const router = require("express").Router();
 const controller = require("../controllers/projects");
+const { authUser, authRole } = require("../middlewares/auth");
 
-router.post("/", controller.add);
-router.put("/:id", controller.update);
-router.delete("/:id", controller.delete);
+router.post("/", authUser, authRole, controller.add);
+router.put("/:id", authUser, authRole, controller.update);
+router.delete("/:id", authUser, authRole, controller.delete);
 router.get("/:id", controller.getSingle);
 router.get("/", controller.getMany);
-router.put("/like/:id", controller.like);
-router.put("/rating/:id", controller.rating);
+router.put("/like/:id", authUser, authRole, controller.like);
+router.put("/rating/:id", authUser, authRole, controller.rating);
+
 
 module.exports = router;

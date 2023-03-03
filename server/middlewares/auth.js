@@ -2,7 +2,7 @@ const ErrorHandler = require("../utils/errorHandler");
 const jwt = require("jsonwebtoken");
 const model = require("../models/auth");
 
-exports.auth = async (req, res, next) => {
+exports.authUser = async (req, res, next) => {
   try {
     // get token
     const token = req.cookies.auth;
@@ -11,7 +11,7 @@ exports.auth = async (req, res, next) => {
     const { _id } = jwt.verify(token, process.env.JWT_SECRET);
     if (!_id) return next(ErrorHandler.notAccept("token expired"));
 
-    const user = model.findById(_id);
+    const user = await model.findById(_id);
     if (!user) return next(ErrorHandler.notAccept());
 
     req.user = user;
@@ -23,7 +23,7 @@ exports.auth = async (req, res, next) => {
 
 exports.authRole = async (req, res, next) => {
   try {
-    if (req.user.role !== "admin") return next(ErrorHandler.notAccept());
+    if (req.user.role !== "admin") return next(ErrorHandler.notAccept("only admin"));
     next();
   } catch (err) {
     next(err);

@@ -10,7 +10,7 @@ class Models {
 
   async add() {
     try {
-      await this.model.create(req.body);
+      await this.model.create(this.req.body);
       this.res.status(201).send("added successfully");
     } catch (err) {
       return this.next(err);
@@ -19,7 +19,7 @@ class Models {
 
   async update() {
     try {
-      const updateData = await this.model.findByIdAndUpate(
+      const updateData = await this.model.findByIdAndUpdate(
         this.req.params.id,
         this.req.body
       );
@@ -32,7 +32,7 @@ class Models {
 
   async delete() {
     try {
-      const data = await this.nodel.findByIdAndDelete(this.req.params.id);
+      const data = await this.model.findByIdAndDelete(this.req.params.id);
       if (!data) return this.next(ErrorHandler.notFound());
       this.res.status(200).send("deleted successfully");
     } catch (err) {
@@ -42,7 +42,7 @@ class Models {
 
   async getSingle() {
     try {
-      const data = await this.nodel.findById(this.req.params.id);
+      const data = await this.model.findById(this.req.params.id);
       if (!data) return this.next(ErrorHandler.notFound());
       this.res.status(200).send(data);
     } catch (err) {
@@ -74,6 +74,7 @@ class Models {
         .find(filter)
         .limit(limit)
         .skip(skip)
+        .populate("category")
         .sort({ createdAt: -1 });
 
       // if no data found
@@ -102,15 +103,22 @@ class Models {
         like.userId.equals(this.req.user._id)
       );
 
-      if (!alreadyLiked) return this.next(ErrorHandler.badRequest());
-
-      // Add the user's ID to the post's likes array and increment the totalLikes field
-      data.likes.push({ userId: this.req.user._id });
-      data.totalLikes += 1;
+      let message
+      if (alreadyLiked) {
+        data.likes = data.likes.filter((item) => {
+          return !(item.userId.equals(this.req.user._id))
+        })
+        data.totalLikes = data.totalLikes < 1 ? 0 : data.totalLikes - 1
+        message = "undo liked"
+      } else {
+        data.likes.push({ userId: this.req.user._id });
+        data.totalLikes = data.totalLikes ? data.totalLikes + 1 : 1;
+        message = "liked"
+      }
 
       // Save the updated post to the database
       await data.save();
-      this.res.status(200).send(`liked successfully`);
+      this.res.status(200).send(message);
     } catch (err) {
       return this.next(err);
     }
@@ -129,7 +137,6 @@ class Models {
         rating.userId.equals(this.req.user._id)
       );
 
-      if (!alreadyRated) return this.next(ErrorHandler.badRequest());
 
       // Update the post's ratings and average rating
       const numRatings = data.ratings.length;
@@ -141,7 +148,10 @@ class Models {
         userId: this.req.user._id,
         rating: rating,
       };
-      const newRatings = [...data.ratings, newRating];
+      const ratings = data.ratings.filter((item) => {
+        return !(item.userId.equals(this.req.user._id))
+      })
+      const newRatings = [...ratings, newRating];
       const newTotalRatings = numRatings + 1;
       const newAvgRating = (sumRatings + rating) / newTotalRatings;
       data.ratings = newRatings;
@@ -150,7 +160,7 @@ class Models {
 
       // Save the updated post to the database
       await data.save();
-      this.res.status(200).send(`rated successfully`);
+      this.res.status(200).send(data);
     } catch (err) {
       return this.next(err);
     }
