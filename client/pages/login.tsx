@@ -9,31 +9,46 @@ import {
 } from "@/componants";
 
 import Link from "next/link";
+import { useState } from "react";
 import { FaSignInAlt } from "react-icons/fa";
 
 const Login = () => {
-  const onChange = (name: string, value: any): any => {};
+  const [input, setInput] = useState({ email: "", password: "" });
+  const [errMsg, setErrorMsg] = useState("");
+
+  const onChange = (name: string, value: any): any => {
+    setInput({ ...input, [name]: value });
+  };
+
+  const onClick = (): any => {
+    // all input are required
+    if (!input.email) return setErrorMsg("email is required!");
+    if (!input.password) return setErrorMsg("password is required!");
+
+    // call api for login user
+    // ...
+  };
 
   return (
     <LayoutForCenter>
       <Form>
-        <Heading1 text={"Let`s Login"} />
-        <Error text={"This is error"} />
+        <Heading1 text={"Login now"} />
+        {errMsg && <Error text={errMsg} />}
         <Input
           onChange={onChange}
-          placeholder="Enter Your Email"
+          placeholder="Enter your email"
           name="email"
           type="email"
         />
         <Input
           onChange={onChange}
-          placeholder="Enter Your Email"
+          placeholder="Enter your password"
           name="password"
-          type="password"
+          type="text"
         />
-        <Button text="Login" Icon={FaSignInAlt} />
+        <Button onClick={onClick} text="Login" Icon={FaSignInAlt} />
         <Paragraph2>
-          Not An Accout <Link href={"/signup"}>Create An Account</Link>
+          Don't have an account <Link href={"/signup"}>Create Account</Link>
         </Paragraph2>
       </Form>
     </LayoutForCenter>

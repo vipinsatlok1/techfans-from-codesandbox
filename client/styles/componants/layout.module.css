@@ -1,3 +1,10 @@
+/* simgle single page layout */
+.layout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 /* service layoutes */
 /* main wrapper */
 .layoutWrapper {

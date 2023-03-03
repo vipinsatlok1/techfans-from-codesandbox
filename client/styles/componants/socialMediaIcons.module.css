@@ -1,0 +1,22 @@
+.socialMediaIcons {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  color: var(--two);
+}
+
+.socialMediaIcons .iconsWrapper {
+  display: flex;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.socialMediaIcons .iconsWrapper svg {
+  font-size: 16px;
+  fill: var(--two);
+  transition: 0.3s;
+}
+
+.socialMediaIcons .iconsWrapper svg:hover {
+  fill: var(--one);
+}

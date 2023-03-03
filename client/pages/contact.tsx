@@ -1,46 +1,60 @@
-import { Button, Input, SocialMedia } from "@/componants";
+import {
+  Button,
+  Error,
+  Heading1,
+  Form,
+  Input,
+  Layout,
+  SocialMediaIcons,
+} from "@/componants";
 import { useSocialMedia } from "@/hooks/useSocialMedia";
+import { useState } from "react";
+import { RiSendPlaneLine } from "react-icons/ri";
 
 const Contact = () => {
-  const socialData = useSocialMedia("techfansweb");
-  const onChange = (name: string, value: any): any => {};
+  const [input, setInput] = useState({ name: "", email: "", query: "" });
+  const [errMsg, setErrorMsg] = useState("");
+
+  const onChange = (name: string, value: any): any => {
+    setInput({ ...input, [name]: value });
+  };
+
+  const onClick = () => {
+    // check requiedetion
+    if (!input.name) return setErrorMsg("name is required");
+    if (!input.email) return setErrorMsg("email is required");
+    if (!input.query) return setErrorMsg("query is required");
+
+    setErrorMsg("");
+  };
 
   return (
-    <section className="page">
-      <div className="contact">
-        Contact us Page
-        <div className="form">
-          <p className="error">{"errMsg"}</p>
-          <Input
-            onChange={onChange}
-            placeholder="Enter Your Email"
-            name="email"
-            type="email"
-          />
-          <Input
-            onChange={onChange}
-            placeholder="Enter Your Name"
-            name="name"
-            type="text"
-          />
-          <Input
-            onChange={onChange}
-            placeholder="Enter Your Query"
-            name="query"
-            type="text"
-          />
-          <Button text={"Send"} />
-        </div>
-        <div className="contact-social">
-          Also ask me
-          <div className="social-icons">
-            {socialData.map((item, i) => {
-              return <SocialMedia key={i} link={item.link} Icon={item.Icon} />;
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
+    <Layout>
+      <Form>
+        <Heading1 text="Contact us" />
+        {errMsg && <Error text={errMsg} />}
+        <Input
+          onChange={onChange}
+          placeholder="Enter your name"
+          name="name"
+          type="text"
+        />
+        <Input
+          onChange={onChange}
+          placeholder="Enter your email"
+          name="email"
+          type="email"
+        />
+        <Input
+          onChange={onChange}
+          placeholder="Enter your query"
+          name="query"
+          type="text"
+        />
+        <Button onClick={onClick} Icon={RiSendPlaneLine} text={"Send"} />
+        <SocialMediaIcons username="vipinsatlok" text={"ask me here"} />
+      </Form>
+    </Layout>
   );
 };
 
