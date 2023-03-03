@@ -19,23 +19,31 @@ const LayoutHome = () => {
                 </div>
                 <div className={styles.right}>
                     <div className={styles.wrapper}>
-                        <div className={styles.cardWrapper}>
-                            <div className={styles.icons}>
-                                <Logo />
-                                <Logo />
-                            </div>
-                            <div className={styles.card}>
-                                <div className={styles.title}>
-                                    <Heading1 text={"Heading"} />
-                                    <Paragraph1 text={"paragraph"} />
-                                </div>
-                                <Button varient='card' Icon={Logo} text={"Button"} />
-                            </div>
-                        </div>
+                        <HomeCard />
+                        <HomeCard />
+                        <HomeCard />
                     </div>
                 </div>
             </div>
             <div className="layoutHome"></div>
+        </div>
+    )
+}
+
+const HomeCard = () => {
+    return (
+        <div className={styles.cardWrapper}>
+            <div className={styles.icons}>
+                <Logo />
+                <Logo />
+            </div>
+            <div className={styles.card}>
+                <div className={styles.title}>
+                    <Heading1 text={"Heading"} />
+                    <Paragraph1 text={"paragraph"} />
+                </div>
+                <Button varient='card' Icon={Logo} text={"Button"} />
+            </div>
         </div>
     )
 }
