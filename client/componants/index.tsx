@@ -28,6 +28,9 @@ export { CardBlog } from "./cards/seviceCard/CardBlog";
 export { CardProject } from "./cards/seviceCard/CardProject";
 export { CardTool } from "./cards/seviceCard/CardTool";
 
+// home Card
+export { CardHomeAd } from "./cards/homeCards/CardHomeAd";
+
 export const Header = header;
 export const Footer = footer;
 export const Hero = hero;

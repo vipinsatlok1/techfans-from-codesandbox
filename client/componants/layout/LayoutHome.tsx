@@ -1,51 +1,56 @@
-import { Logo } from '@/public/svgs'
-import React from 'react'
-import styles from "../../styles/componants/layout.module.css"
-import { Button, Heading1, Paragraph1 } from '..'
+import React from "react";
+import styles from "../../styles/componants/layout.module.css";
+import { Button, Heading1, Paragraph1 } from "..";
 
-const LayoutHome = () => {
-    return (
-        <div className={styles.layoutHomeWrapper}>
-            <div className={styles.layoutHome}>
-                <div className={styles.left}>
-                    <div className={styles.wrapper}>
-                        <Logo />
-                        <div className={styles.title}>
-                            <Heading1 text={"Heading"} />
-                            <Paragraph1 text={"Hello I am Paragram"} />
-                        </div>
-                        <Button varient='card' text={"Lets Exprolor"} />
-                    </div>
-                </div>
-                <div className={styles.right}>
-                    <div className={styles.wrapper}>
-                        <HomeCard />
-                        <HomeCard />
-                        <HomeCard />
-                    </div>
-                </div>
-            </div>
-            <div className="layoutHome"></div>
-        </div>
-    )
+interface LeftSide {
+  Icon: any;
+  title: string;
+  dec: string;
+  path: string;
+  button: {
+    text: string;
+    ButtonIcon: any;
+  };
 }
 
-const HomeCard = () => {
-    return (
-        <div className={styles.cardWrapper}>
-            <div className={styles.icons}>
-                <Logo />
-                <Logo />
-            </div>
-            <div className={styles.card}>
-                <div className={styles.title}>
-                    <Heading1 text={"Heading"} />
-                    <Paragraph1 text={"paragraph"} />
-                </div>
-                <Button varient='card' Icon={Logo} text={"Button"} />
-            </div>
-        </div>
-    )
+interface Props {
+  side?: string;
+  left: LeftSide;
+  Card: any;
+  cardData: LeftSide[];
 }
 
-export default LayoutHome
+const LayoutHome = ({ side, left, Card, cardData }: Props) => {
+  const { Icon, title, dec, path } = left;
+  const { text, ButtonIcon } = left.button;
+
+  const classNameLeft = side ? styles[side] : "";
+  const className = styles.layoutHomeWrapper + " " + classNameLeft;
+
+  return (
+    <div className={className}>
+      <div className={styles.layoutHome}>
+        <div className={styles.left}>
+          <div className={styles.wrapper}>
+            <Icon />
+            <div className={styles.title}>
+              <Heading1 text={title} />
+              <Paragraph1 text={dec} />
+            </div>
+            <Button path={path} Icon={ButtonIcon} varient="card" text={text} />
+          </div>
+        </div>
+        <div className={styles.right}>
+          <div className={styles.wrapper}>
+            {cardData.map((item, i) => {
+              return <Card key={i} data={item} />;
+            })}
+          </div>
+        </div>
+      </div>
+      <div className="layoutHome"></div>
+    </div>
+  );
+};
+
+export default LayoutHome;
