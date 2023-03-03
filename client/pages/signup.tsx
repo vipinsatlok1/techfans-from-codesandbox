@@ -7,7 +7,7 @@ import {
   Form,
   Heading1,
   Input,
-  LayoutForCenter,
+  Layout,
   Paragraph2,
 } from "@/componants";
 
@@ -35,7 +35,7 @@ const Signup = () => {
   };
 
   return (
-    <LayoutForCenter>
+    <Layout>
       <Form>
         <Heading1 text={"Create your account"} />
         {errMsg && <Error text={errMsg} />}
@@ -55,7 +55,7 @@ const Signup = () => {
           I have an accout <Link href={"/login"}>Login now</Link>
         </Paragraph2>
       </Form>
-    </LayoutForCenter>
+    </Layout>
   );
 };
 

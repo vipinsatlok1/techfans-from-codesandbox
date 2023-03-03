@@ -6,7 +6,6 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    number: Number,
     email: String,
     password: {
       type: String,

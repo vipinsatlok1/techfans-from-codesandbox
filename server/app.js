@@ -8,15 +8,20 @@ app.use(cors({ origin: "*", credentials: true, exposedHeaders: true }));
 app.use(express.json());
 app.use(cookieParser());
 
+// get home routes for check
 app.get("/", (req, res) => {
-  res
-    // .cookie("techfans", "Hello From Tech Fans Site")
-    .send("this is tech fans site");
+  res.send("hi! tech fans server is running");
 });
 
 // uses routes
 const auth = require("./routes/auth");
+const blogs = require("./routes/blogs");
+const tools = require("./routes/tools");
+const projects = require("./routes/projects");
 app.use("/api/auth", auth);
+app.use("/api/blogs", blogs);
+app.use("/api/tools", tools);
+app.use("/api/projects", projects);
 
 // // error middleware
 const error = require("./middlewares/error");
