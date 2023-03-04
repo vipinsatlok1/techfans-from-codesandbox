@@ -18,7 +18,7 @@ const LayoutContent = ({
   data,
   children,
 }: {
-  children: any;
+  children?: any;
   data: ILayoutContent;
 }) => {
   const { title, serviceType, Icon, isOpen, onClick, isSearch, onChange } =

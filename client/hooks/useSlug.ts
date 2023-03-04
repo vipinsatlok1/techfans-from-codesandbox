@@ -1,4 +1,4 @@
-export const useSlug = (text: string) => {
+export const createSlug = (title: string) => {
     const space = new RegExp(" ", "g")
-    return text.replace(space, "-").toLocaleLowerCase()
+    return title.replace(space, "-").toLocaleLowerCase()
 }

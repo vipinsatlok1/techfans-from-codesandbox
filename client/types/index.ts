@@ -18,11 +18,12 @@ export interface ISidebar {
 export interface ILayoutService {
   sidebarData: ISidebar[];
   data: ILayoutContent;
+  children?: any;
 }
 
 export interface ILayoutContent {
   isSearch: boolean;
-  children: any;
+  children?: any;
   title: string;
   Icon: any;
   serviceType: string;
