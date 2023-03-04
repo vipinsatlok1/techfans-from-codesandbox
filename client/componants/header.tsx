@@ -10,6 +10,7 @@ import { MdFolderOpen } from "react-icons/md";
 import { MdSubject } from "react-icons/md";
 import { MdMenu } from "react-icons/md";
 import { MdClear } from "react-icons/md";
+import cookies from 'js-cookie';
 
 const header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -67,12 +68,18 @@ const header = () => {
           text="About Us"
           path="about"
         />
-        <HeaderBox
-          onClick={() => setIsActive(!isActive)}
-          Icon={MdLogin}
-          text="Login"
-          path="login"
-        />
+        {
+          !cookies.get('auth') ? <HeaderBox
+            onClick={() => setIsActive(!isActive)}
+            Icon={MdLogin}
+            text="Login"
+            path="login"
+          /> : <HeaderBox
+            onClick={() => setIsActive(!isActive)}
+            Icon={MdLogin}
+            text="Logout"
+          />
+        }
       </div>
     </header>
   );

@@ -7,12 +7,19 @@ import {
   Paragraph2,
   Layout,
 } from "@/componants";
+import { getUser, login } from "@/hooks/useApiCall";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { FaSignInAlt } from "react-icons/fa";
+import cookies from 'js-cookie';
 
 const Login = () => {
+  
+  const router = useRouter()
+  if (cookies.get('auth')) router.replace("/")
+
   const [input, setInput] = useState({ email: "", password: "" });
   const [errMsg, setErrorMsg] = useState("");
 
@@ -20,13 +27,18 @@ const Login = () => {
     setInput({ ...input, [name]: value });
   };
 
-  const onClick = (): any => {
+  const onClick = async () => {
     // all input are required
     if (!input.email) return setErrorMsg("email is required!");
     if (!input.password) return setErrorMsg("password is required!");
 
     // call api for login user
-    // ...
+    try {
+      await login(input)
+      return router.replace("/")
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   return (
