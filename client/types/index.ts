@@ -46,6 +46,7 @@ export interface ICardBlog {
 export interface ICardTool {
   title: string;
   like: number;
+  svg: string;
   paragraph: string;
   _id: string;
   Icon: any;

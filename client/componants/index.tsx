@@ -16,6 +16,7 @@ import form from "./forms/form";
 import heading1 from "./forms/heading1";
 import heading2 from "./forms/heading2";
 import layoutForCenter from "./layout/layoutForCenter";
+export { Svg } from "./Svg";
 
 // layoutes
 export { LayoutService } from "./layout/LayoutService";

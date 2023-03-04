@@ -8,6 +8,7 @@ import {
   LayoutTool,
   Sidebar,
 } from "@/componants";
+
 import { Logo } from "@/public/svgs";
 import { YoutubeThumbnailDownload } from "@/tools";
 import { useRouter } from "next/router";
@@ -77,17 +78,6 @@ const cardData = [
   },
 ];
 
-// export interface ILayoutContent {
-//   isSearch: boolean;
-//   children: any;
-//   title: string;
-//   Icon: any;
-//   serviceType: string;
-//   onChange: () => {};
-//   onClick?: () => {};
-//   isOpen?: boolean;
-// }
-
 const data = {
   isSearch: false,
   title: "Youtube Thumbnail Download",
@@ -96,6 +86,8 @@ const data = {
 };
 
 const Tool = () => {
+
+  
   const router = useRouter();
   const slug = router.query.tool;
 
@@ -108,5 +100,7 @@ const Tool = () => {
     </LayoutService>
   );
 };
+
+
 
 export default Tool;

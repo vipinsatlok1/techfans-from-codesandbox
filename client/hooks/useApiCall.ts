@@ -37,7 +37,7 @@ export const getBlogsCategory = async () => {
   return await instance.get("blogsCategory");
 };
 
-export const getBlogs = async (title: string, dec: string, page: number) => {
+export const getBlogs = async (title?: string, dec?: string, page?: number) => {
   return await instance.get("blogs" + `?title=${title}&dec=${dec}&page=${page}`);
 };
 
@@ -45,11 +45,11 @@ export const getToolsCategory = async () => {
   return await instance.get("toolsCategory");
 };
 
-export const getTools = async (title: string, dec: string, page: number) => {
+export const getTools = async (title?: string, dec?: string, page?: number) => {
   return await instance.get("tools" + `?title=${title}&dec=${dec}&page=${page}`);
 };
 
-export const getProjects = async (title: string, dec: string, page: number) => {
+export const getProjects = async (title?: string, dec?: string, page?: number) => {
   return await instance.get("projects" + `?title=${title}&dec=${dec}&page=${page}`);
 };
 

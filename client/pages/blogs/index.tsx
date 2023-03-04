@@ -39,7 +39,7 @@ const cardData = [
     paragraph: "how to genrate color",
     like: 454,
     slug: "color-genrate",
-    src: "/images/blog.jpg",
+    src: "https://ik.imagekit.io/pw6ytnyfm/default-image.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677933455127",
   },
   {
     Icon: Logo,
@@ -47,7 +47,7 @@ const cardData = [
     paragraph: "how to genrate color",
     like: 454,
     slug: "color-genrate",
-    src: "/images/blog.jpg",
+    src: "https://ik.imagekit.io/pw6ytnyfm/default-image.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677933455127",
   },
   {
     Icon: Logo,

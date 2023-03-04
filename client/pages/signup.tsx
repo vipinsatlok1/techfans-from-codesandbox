@@ -10,8 +10,15 @@ import {
   Layout,
   Paragraph2,
 } from "@/componants";
+import { register } from "@/hooks/useApiCall";
+import { Router, useRouter } from "next/router";
+import cookies from 'js-cookie';
 
 const Signup = () => {
+
+  const router = useRouter()
+  if (cookies.get('auth')) router.replace("/")
+
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -25,9 +32,14 @@ const Signup = () => {
     if (!input.email) return setErrorMsg("email is required");
     if (!input.password) return setErrorMsg("password is required");
 
+    // call api for login user
     try {
-      setErrorMsg("");
-    } catch (err) {}
+
+      await register(input)
+      return router.replace("/")
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   const onChange = (name: string, value: string): any => {

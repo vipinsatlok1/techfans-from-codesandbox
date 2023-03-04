@@ -1,7 +1,7 @@
 import { Close, Logo } from "@/public/svgs";
 import styles from "../styles/componants/header.module.css";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdOutlineHandyman } from "react-icons/md";
 import { MdCall } from "react-icons/md";
 import { MdOutlinePersonOutline } from "react-icons/md";
@@ -12,7 +12,22 @@ import { MdMenu } from "react-icons/md";
 import { MdClear } from "react-icons/md";
 import cookies from 'js-cookie';
 
-const header = () => {
+const Header = () => {
+
+  const [getCookie, setGetCookie] = useState("")
+
+  const getCookieFromStore = (): any => {
+    setGetCookie(cookies.get('auth'))
+  }
+
+  useEffect(() => getCookieFromStore, [])
+
+  const logout = (): any => {
+    cookies.remove('auth');
+    getCookieFromStore()
+    setIsActive(!isActive)
+  }
+
   const [isActive, setIsActive] = useState(false);
   return (
     <header className={styles.header}>
@@ -39,7 +54,7 @@ const header = () => {
         className={isActive ? styles.active + " " + styles.right : styles.right}
       >
         <HeaderBox
-          onClick={() => setIsActive(!isActive)}
+          onClick={(): any => setIsActive(!isActive)}
           Icon={MdSubject}
           text="Blogs"
           path="blogs"
@@ -69,13 +84,13 @@ const header = () => {
           path="about"
         />
         {
-          !cookies.get('auth') ? <HeaderBox
-            onClick={() => setIsActive(!isActive)}
+          !getCookie ? <HeaderBox
+            onClick={logout}
             Icon={MdLogin}
             text="Login"
             path="login"
           /> : <HeaderBox
-            onClick={() => setIsActive(!isActive)}
+            onClick={logout}
             Icon={MdLogin}
             text="Logout"
           />
@@ -92,9 +107,9 @@ const HeaderBox = ({
   onClick,
 }: {
   text: string;
-  path: string;
+  path?: string;
   Icon: any;
-  onClick: () => {};
+  onClick?: () => {};
 }) => {
   return (
     <Link onClick={onClick} href={"/" + path} className={styles.headerBox}>
@@ -104,4 +119,4 @@ const HeaderBox = ({
   );
 };
 
-export default header;
+export default Header;
