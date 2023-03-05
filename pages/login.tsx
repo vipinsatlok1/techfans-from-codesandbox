@@ -60,7 +60,7 @@ const Login = () => {
         />
         <Button onClick={onClick} text="Login" Icon={FaSignInAlt} />
         <Paragraph2>
-          Don't have an account <Link href={"/signup"}>Create Account</Link>
+          Dont have an account <Link href={"/signup"}>Create Account</Link>
         </Paragraph2>
       </Form>
     </Layout>
