@@ -13,6 +13,10 @@ import {
   ISidebar,
   ISidebarSingleData,
 } from "@/types";
+import { instance } from "@/hooks/useApiCall";
+import { getSidebarListData, getToolCardData } from "@/hooks/useCardData";
+import { useRouter } from "next/router";
+import { createSlug } from "@/hooks/useSlug";
 
 const LayoutContent = ({
   data,
@@ -23,6 +27,12 @@ const LayoutContent = ({
 }) => {
   const { title, serviceType, Icon, isOpen, onClick, isSearch, onChange } =
     data;
+
+  const getData = async (search: string) => {
+    const data = await instance.get(`tools?title=${search}`)
+    const returnData = getToolCardData(data.data.data as any)
+  }
+
 
   return (
     <>
@@ -42,7 +52,7 @@ const LayoutContent = ({
         {isSearch ? (
           <div className={styles.layoutHeaderSearch}>
             <Input
-              onChange={onChange}
+              onChange={(name: string, value: string) => getData(value)}
               name="search"
               varient="search"
               placeholder={`Search ${serviceType} here..`}
@@ -77,6 +87,7 @@ export const LayoutService = ({
   const layoutActiveClass = isOpen ? activeClass : "";
   const layoutClass = styles.layoutWrapper + " " + layoutActiveClass;
 
+
   return (
     <section className={layoutClass}>
       {/* sidebar */}
@@ -96,39 +107,51 @@ export const LayoutService = ({
 
 const List = ({ data }: { data: ISidebar }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { title, Icon, listData } = data;
+  const { title, Icon, _id } = data;
+  const [listData, setListData] = useState([])
+
+  const getData = async (id: string) => {
+    setIsOpen(!isOpen)
+    const data = await instance.get(`tools?category=${id}&limit=1000`)
+    const returnData = getSidebarListData(data.data.data as any)
+    setListData(returnData)
+  }
 
   return (
     <div className={styles.list}>
       <div className={styles.top}>
         <div className={styles.left}>
-          <Icon />
+          {/* <Icon /> */}
           {title}
         </div>
         <div className={styles.right}>
           {isOpen ? (
             <MdArrowDropUp onClick={() => setIsOpen(!isOpen)} />
           ) : (
-            <MdArrowDropDown onClick={() => setIsOpen(!isOpen)} />
+            <MdArrowDropDown onClick={() => getData(_id)} />
           )}
         </div>
       </div>
       <div
         className={isOpen ? styles.bottom + " " + styles.active : styles.bottom}
       >
-        {listData.map((item, i) => {
-          return <BottomList key={i} title={item.title} Icon={item.Icon} />;
+        {listData.length && listData?.map((item, i) => {
+          return <BottomList key={i} title={item.title} _id={item._id} Icon={item.Icon} />;
         })}
       </div>
     </div>
   );
 };
 
-const BottomList = ({ title, Icon }: ISidebarSingleData) => {
+const BottomList = ({ title, Icon, _id }: ISidebarSingleData) => {
+
+  const router = useRouter()
+  const slug = createSlug(title)
+
   return (
     <div>
-      <Icon />
-      {title}
+      {/* <Icon /> */}
+      <div onClick={() => router.push(`/tools/${slug}`)}>{title}</div>
     </div>
   );
 };

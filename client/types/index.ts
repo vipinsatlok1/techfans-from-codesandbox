@@ -2,11 +2,13 @@
 export interface ISidebarSingleData {
   title: string;
   Icon: any;
+  _id: string
 }
 
 export interface ISidebar {
   title: string;
   Icon: any;
+  _id: string;
   listData: ISidebarSingleData[];
 }
 

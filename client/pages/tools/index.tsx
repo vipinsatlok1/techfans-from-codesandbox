@@ -25,8 +25,10 @@ const data = {
 
 const Tools = ({ toolsData, toolsCategoryData }: { toolsData: any; toolsCategoryData: any }) => {
 
-  const cardData = getToolCardData(toolsData)
-  const sidebarData = getSidebarData(toolsCategoryData)
+  console.log(toolsData, toolsCategoryData)
+  console.log(toolsCategoryData)
+  const cardData = getToolCardData(toolsData.data)
+  const sidebarData = getSidebarData(toolsCategoryData.data)
 
   return (
     <LayoutService data={data as ILayoutContent} sidebarData={sidebarData as any}>
@@ -41,8 +43,8 @@ export const getServerSideProps = async () => {
   let toolsData
   let toolsCategoryData
   try {
-    const getToolsData = await instance.get("blogs")
-    const getToolsCategoryData = await instance.get("blogsCategory")
+    const getToolsData = await instance.get("tools")
+    const getToolsCategoryData = await instance.get("toolsCategory")
 
     toolsData = getToolsData.data
     toolsCategoryData = getToolsCategoryData.data

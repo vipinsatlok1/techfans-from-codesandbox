@@ -11,10 +11,13 @@ import "@/styles/about.css";
 import "@/styles/contact.css";
 import "@/styles/componants/homeCards.css";
 import type { AppProps } from "next/app";
+import { Provider } from 'react-redux';
+import store from '../store/store';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+
+    <Provider store={store}>
       <div className="container">
         <Header />
         <main>
@@ -22,6 +25,6 @@ export default function App({ Component, pageProps }: AppProps) {
         </main>
         <Footer />
       </div>
-    </>
+    </Provider>
   );
 }

@@ -11,7 +11,7 @@ export const getToolCardData = (data: []) => {
             paragraph: "",
             like: "",
             src: "",
-            slug: ""
+            slug: "",
         }
 
         obj.title = item.title
@@ -37,6 +37,25 @@ export const getSidebarData = (categoryData: []) => {
 
         obj._id = item._id
         obj.title = item.name
+        obj.svg = item.svg
+        return obj
+    })
+    return returnData
+}
+
+export const getSidebarListData = (data: any) => {
+
+    const returnData = data.map((item: any, i) => {
+        let obj = {
+            title: "",
+            svg: "",
+            _id: ""
+        }
+
+        console.log(item)
+
+        obj._id = item._id
+        obj.title = item.title
         obj.svg = item.svg
         return obj
     })
