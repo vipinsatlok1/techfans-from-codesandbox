@@ -5,6 +5,9 @@ const url = "https://techfans-server.cyclic.app";
 
 export const instance = axios.create({
   baseURL: url + "/api/",
+  headers: {
+    credentials: 'include',
+  }
 });
 
 export const test = async () => {
@@ -15,7 +18,6 @@ export const login = async (sendData: { email: string; password: string }) => {
   const { data } = await instance.post("auth/login", sendData);
 
   // set the cookie with a name, value, and options
-  cookies.set('auth', data.token, { expires: 30, path: '/' });
   return true
 };
 
