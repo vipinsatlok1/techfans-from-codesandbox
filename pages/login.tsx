@@ -6,7 +6,7 @@ import {
   Input,
   Paragraph2,
   Layout,
-} from "@/componants";
+} from "../componants";
 import { getUser, login } from "@/hooks/useApiCall";
 
 import Link from "next/link";
